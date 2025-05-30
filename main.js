@@ -38,3 +38,12 @@ const blurHeader = () => {
         : header.classList.remove('blur-header');
 }
 window.addEventListener('scroll', blurHeader)
+
+/* show scroll up */
+const scrollUp = () => {
+    const scrollUp = document.getElementById('scroll-up')
+    //when the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scroll-up id
+    this.scrollY >= 350 ? scrollUp.classList.add('show-scroll')
+        : scrollUp.classList.remove('show-scroll');
+}
+window.addEventListener('scroll', scrollUp);
