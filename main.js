@@ -47,3 +47,24 @@ const scrollUp = () => {
         : scrollUp.classList.remove('show-scroll');
 }
 window.addEventListener('scroll', scrollUp);
+
+/* scroll sections active link */
+const sections = document.querySelectorAll('section[id]');
+const scrollActive = () => {
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 58;
+        const sectionId = current.getAttribute('id');
+        const navMenu = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
+        // When the scroll is greater than or equal to the section top and less than or equal to the section top + section height
+
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navMenu.classList.add('active-link');
+        } else {
+            navMenu.classList.remove('active-link');
+        }
+    });
+}
+window.addEventListener('scroll', scrollActive);
